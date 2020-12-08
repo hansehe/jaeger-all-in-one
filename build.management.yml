@@ -1,0 +1,24 @@
+env_files: 
+    - version.env
+
+run:
+    selections:
+        service:
+            files:
+                - docker-compose.yml
+
+build:
+    selections:
+        helm:
+            directory: helm
+            cmd: 
+                - helm template jaeger-all-in-one
+
+publish:
+    selections:
+        helm:
+            directory: helm
+            cmd: 
+                - helm template jaeger-all-in-one
+                - helm package jaeger-all-in-one --destination charts
+                - helm repo index ./charts

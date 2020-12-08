@@ -1,0 +1,90 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{ include "jaeger-all-in-one.fullname" . }}
+  labels:
+    {{- include "jaeger-all-in-one.labels" . | nindent 4 }}
+spec:
+  replicas: {{ .Values.replicaCount }}
+  selector:
+    matchLabels:
+      {{- include "jaeger-all-in-one.selectorLabels" . | nindent 6 }}
+  template:
+    metadata:
+      labels:
+        {{- include "jaeger-all-in-one.selectorLabels" . | nindent 8 }}
+      annotations:
+        prometheus.io/scrape: "true"
+        prometheus.io/path: "/metrics"
+        prometheus.io/port: "14269"
+    spec:
+    {{- with .Values.imagePullSecrets }}
+      imagePullSecrets:
+        {{- toYaml . | nindent 8 }}
+    {{- end }}
+      serviceAccountName: {{ include "jaeger-all-in-one.serviceAccountName" . }}
+      securityContext:
+        {{- toYaml .Values.podSecurityContext | nindent 8 }}
+      volumes:
+        - name: jaeger-volume
+          persistentVolumeClaim:
+            claimName: {{ include "jaeger-all-in-one.fullname" . }}
+      containers:
+        - name: {{ .Chart.Name }}
+          securityContext:
+            {{- toYaml .Values.securityContext | nindent 12 }}
+          image: "{{ .Values.image.repository }}:{{ .Chart.AppVersion }}"
+          imagePullPolicy: {{ .Values.image.pullPolicy }}
+          ports:
+            - name: udp-com-thr
+              containerPort: 6831
+              protocol: UDP
+            - name: udp-bin-thr
+              containerPort: 6832
+              protocol: UDP
+            - name: udp-bin-thr-o
+              containerPort: 5775
+              protocol: UDP
+            - name: http-configs
+              containerPort: 5778
+              protocol: TCP
+            - name: http-ui
+              containerPort: 16686
+              protocol: TCP
+            - name: http-admin
+              containerPort: 14269
+              protocol: TCP
+          volumeMounts:
+            - mountPath: "/badger"
+              name: jaeger-volume
+          livenessProbe:
+            httpGet:
+              path: {{ .Values.healthCheckUrl | quote }}
+              port: http-admin
+          readinessProbe:
+            httpGet:
+              path: {{ .Values.healthCheckUrl | quote }}
+              port: http-admin
+          resources:
+            {{- toYaml .Values.resources | nindent 12 }}
+          env:
+          - name: HOST
+            value: http://{{ include "jaeger-all-in-one.fullname" . }}
+          - name: PORT
+            value: {{ .Values.service.port | quote }}
+          {{- range $key, $value := .Values.environmentVariables }}
+          - name: {{ $key }}
+            value: {{ $value | quote }}
+          {{- end }}
+      {{- with .Values.nodeSelector }}
+      nodeSelector:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}
+    {{- with .Values.affinity }}
+      affinity:
+        {{- toYaml . | nindent 8 }}
+    {{- end }}
+    {{- with .Values.tolerations }}
+      tolerations:
+        {{- toYaml . | nindent 8 }}
+    {{- end }}
