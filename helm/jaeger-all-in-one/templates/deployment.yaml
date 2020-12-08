@@ -25,10 +25,12 @@ spec:
       serviceAccountName: {{ include "jaeger-all-in-one.serviceAccountName" . }}
       securityContext:
         {{- toYaml .Values.podSecurityContext | nindent 8 }}
+      {{- if .Values.volume.enabled }}
       volumes:
         - name: jaeger-volume
           persistentVolumeClaim:
             claimName: {{ include "jaeger-all-in-one.fullname" . }}
+      {{- end }}
       containers:
         - name: {{ .Chart.Name }}
           securityContext:
@@ -54,9 +56,11 @@ spec:
             - name: http-admin
               containerPort: 14269
               protocol: TCP
+          {{- if .Values.volume.enabled }}
           volumeMounts:
             - mountPath: "/badger"
               name: jaeger-volume
+          {{- end }}
           livenessProbe:
             httpGet:
               path: {{ .Values.healthCheckUrl | quote }}
@@ -68,10 +72,6 @@ spec:
           resources:
             {{- toYaml .Values.resources | nindent 12 }}
           env:
-          - name: HOST
-            value: http://{{ include "jaeger-all-in-one.fullname" . }}
-          - name: PORT
-            value: {{ .Values.service.port | quote }}
           {{- range $key, $value := .Values.environmentVariables }}
           - name: {{ $key }}
             value: {{ $value | quote }}

@@ -3,9 +3,9 @@ entries:
   jaeger-all-in-one:
   - apiVersion: v2
     appVersion: 1.21.0
-    created: "2020-12-08T16:41:59.5629478+01:00"
+    created: "2020-12-08T18:45:45.5024018+01:00"
     description: Jaeger all-in-one helm chart for Kubernetes
-    digest: 73c8dd42c9e7aee703a289e7ababf398a86d299c996241972de4e5fedf957298
+    digest: ab7b3e8d18cf833825845d39681d89047496e5f88a37ad699e17a46efbb48e4b
     home: https://github.com/hansehe/jaeger-all-in-one
     icon: https://raw.githubusercontent.com/hansehe/jaeger-all-in-one/master/helm/jaeger.png
     keywords:
@@ -21,4 +21,4 @@ entries:
     urls:
     - jaeger-all-in-one-0.1.0.tgz
     version: 0.1.0
-generated: "2020-12-08T16:41:59.5619467+01:00"
+generated: "2020-12-08T18:45:45.5014024+01:00"

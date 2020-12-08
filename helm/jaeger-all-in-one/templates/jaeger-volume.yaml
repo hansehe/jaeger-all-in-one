@@ -4,7 +4,7 @@ kind: PersistentVolumeClaim
 metadata:
   name: {{ include "jaeger-all-in-one.fullname" . }}
 spec:
-  {{- if .Values.volume.className -}}
+  {{- if .Values.volume.className }}
   storageClassName: {{ .Values.volume.className }}
   {{- end }}
   accessModes:
