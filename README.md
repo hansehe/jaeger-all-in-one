@@ -22,6 +22,6 @@ helm repo add jaeger-all-in-one https://raw.githubusercontent.com/hansehe/jaeger
 helm repo update
 ```
 ```bash
-helm install jaeger-all-in-one jaeger-all-in-one jaeger-all-in-one
+helm install jaeger-all-in-one jaeger-all-in-one/jaeger-all-in-one
 ```
 
