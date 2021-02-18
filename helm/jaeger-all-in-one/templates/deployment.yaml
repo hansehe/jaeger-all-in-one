@@ -54,9 +54,20 @@ spec:
             - name: http-ui
               containerPort: 16686
               protocol: TCP
+            - name: grpc-proto
+              containerPort: 14250
+              protocol: TCP
+            - name: http-bin-thr
+              containerPort: 14268
+              protocol: TCP
             - name: http-admin
               containerPort: 14269
               protocol: TCP
+            {{- if .Values.enableHttpZipkinCollector }}
+            - name: http-zipkin
+              containerPort: 9411
+              protocol: TCP
+            {{- end }}  
           {{- if .Values.volume.enabled }}
           volumeMounts:
             - mountPath: "/badger"
@@ -77,6 +88,10 @@ spec:
           - name: {{ $key }}
             value: {{ $value | quote }}
           {{- end }}
+          {{- if .Values.enableHttpZipkinCollector }}
+          - name: COLLECTOR_ZIPKIN_HTTP_PORT
+            value: "9411"
+          {{- end }}  
       {{- with .Values.nodeSelector }}
       nodeSelector:
         {{- toYaml . | nindent 8 }}
