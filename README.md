@@ -3,7 +3,7 @@
 [![Artifact HUB](https://img.shields.io/endpoint?url=https://artifacthub.io/badge/repository/jaeger-all-in-one)](https://artifacthub.io/packages/search?repo=jaeger-all-in-one)
 
 The Jaeger tracing all-in-one service enables jaeger for development purposes, check out:
-- https://www.jaegertracing.io/docs/1.18/getting-started/
+- https://www.jaegertracing.io/docs/1.22/getting-started/
 
 ## Run With Docker
 ```bash

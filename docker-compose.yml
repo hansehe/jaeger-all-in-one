@@ -1,6 +1,6 @@
 version: '3.4'
 
-# https://www.jaegertracing.io/docs/1.19/deployment/
+# https://www.jaegertracing.io/docs/1.22/deployment/
 services:
   jaeger:
     image: jaegertracing/all-in-one:1.22.0
