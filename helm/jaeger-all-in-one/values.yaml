@@ -93,3 +93,6 @@ volume:
   enabled: true
   className: ""
   size: 3Gi
+
+testFramework:
+  enabled: true
