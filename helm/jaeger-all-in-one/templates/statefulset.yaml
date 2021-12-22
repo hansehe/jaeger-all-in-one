@@ -3,6 +3,7 @@ apiVersion: apps/v1
 kind: StatefulSet
 metadata:
   name: {{ include "jaeger-all-in-one.fullname" . }}
+  namespace: {{ .Release.Namespace }}
   labels:
     {{- include "jaeger-all-in-one.labels" . | nindent 4 }}
 spec:
