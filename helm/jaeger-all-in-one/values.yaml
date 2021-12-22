@@ -94,5 +94,5 @@ volume:
   className: ""
   size: 3Gi
 
-testFramework:
+tests:
   enabled: true
