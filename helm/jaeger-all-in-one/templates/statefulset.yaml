@@ -39,7 +39,7 @@ spec:
         - name: {{ .Chart.Name }}
           securityContext:
             {{- toYaml .Values.securityContext | nindent 12 }}
-          image: "{{ .Values.image.repository }}:{{ .Chart.AppVersion }}"
+          image: "{{ .Values.image.repository }}:{{ include "jaeger-all-in-one.jaegerVersion" . }}"
           imagePullPolicy: {{ .Values.image.pullPolicy }}
           ports:
             - name: udp-com-thr
