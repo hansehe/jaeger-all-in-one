@@ -1,9 +1,9 @@
 version: '3.4'
 
-# https://www.jaegertracing.io/docs/1.41/deployment/
+# https://www.jaegertracing.io/docs/1.46/deployment/
 services:
   jaeger:
-    image: jaegertracing/all-in-one:1.41.0
+    image: jaegertracing/all-in-one:1.46
     hostname: jaeger
     ports:
       - 6831:6831/udp # accept jaeger.thrift in compact Thrift protocol used by most current Jaeger clients
