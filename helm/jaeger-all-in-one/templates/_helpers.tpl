@@ -37,7 +37,7 @@ Common labels
 {{- define "jaeger-all-in-one.labels" -}}
 helm.sh/chart: {{ include "jaeger-all-in-one.chart" . }}
 {{ include "jaeger-all-in-one.selectorLabels" . }}
-app.kubernetes.io/version: {{ include "jaeger-all-in-one.jaegerVersion" . }}
+app.kubernetes.io/version: "{{ include "jaeger-all-in-one.jaegerVersion" . }}"
 app.kubernetes.io/managed-by: {{ .Release.Service }}
 {{- end -}}
 
