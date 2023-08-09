@@ -29,6 +29,16 @@ spec:
       targetPort: http-configs
       protocol: TCP
       name: http-configs
+    {{- if .Values.enableHttpOpenTelemetryCollector }}
+    - port: 4317
+      targetPort: http-otlp-grpc
+      protocol: TCP
+      name: http-otlp-grpc
+    - port: 4318
+      targetPort: http-otlp
+      protocol: TCP
+      name: http-otlp
+    {{- end }}
     - port: {{ .Values.service.port }}
       targetPort: http-ui
       protocol: TCP

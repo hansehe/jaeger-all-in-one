@@ -54,6 +54,14 @@ spec:
             - name: http-configs
               containerPort: 5778
               protocol: TCP
+            {{- if .Values.enableHttpOpenTelemetryCollector }}
+            - name: http-otlp-grpc
+              containerPort: 4317
+              protocol: TCP
+            - name: http-otlp
+              containerPort: 4318
+              protocol: TCP
+            {{- end }}  
             - name: http-ui
               containerPort: 16686
               protocol: TCP
@@ -91,10 +99,14 @@ spec:
           - name: {{ $key }}
             value: {{ $value | quote }}
           {{- end }}
+          {{- if .Values.enableHttpOpenTelemetryCollector }}
+          - name: COLLECTOR_OTLP_ENABLED
+            value: "true"
+          {{- end }}  
           {{- if .Values.enableHttpZipkinCollector }}
           - name: COLLECTOR_ZIPKIN_HOST_PORT
-            value: "9411"
-          {{- end }}  
+            value: ":9411"
+          {{- end }}
       {{- with .Values.nodeSelector }}
       nodeSelector:
         {{- toYaml . | nindent 8 }}
