@@ -2,8 +2,28 @@ apiVersion: v1
 entries:
   jaeger-all-in-one:
   - apiVersion: v2
+    appVersion: "1.55"
+    created: "2024-03-27T12:46:25.4997301+01:00"
+    description: Jaeger all-in-one helm chart for Kubernetes
+    digest: b9bf9a066a349dca335daee542bb9853e17a7fe0c93372bab552ade9a44a90c5
+    home: https://github.com/hansehe/jaeger-all-in-one
+    icon: https://raw.githubusercontent.com/hansehe/jaeger-all-in-one/master/helm/jaeger.png
+    keywords:
+    - jaeger
+    - jaeger-all-in-one
+    maintainers:
+    - email: hans.erik.heggem@gmail.com
+      name: hansehe
+    name: jaeger-all-in-one
+    sources:
+    - https://github.com/hansehe/jaeger-all-in-one
+    type: application
+    urls:
+    - jaeger-all-in-one-0.1.12.tgz
+    version: 0.1.12
+  - apiVersion: v2
     appVersion: "1.47"
-    created: "2023-08-09T17:59:57.9530259+02:00"
+    created: "2024-03-27T12:46:25.4986951+01:00"
     description: Jaeger all-in-one helm chart for Kubernetes
     digest: 8943810055acc00f6bfc8bb1589f28f591f51ce444dc63bec13e7ec360ce25b1
     home: https://github.com/hansehe/jaeger-all-in-one
@@ -23,7 +43,7 @@ entries:
     version: 0.1.11
   - apiVersion: v2
     appVersion: "1.46"
-    created: "2023-08-09T17:59:57.9530259+02:00"
+    created: "2024-03-27T12:46:25.498182+01:00"
     description: Jaeger all-in-one helm chart for Kubernetes
     digest: a0a23e40853c45afcf10b704a5a5feb8b073e58c530da8bf416bc8ce32f9257f
     home: https://github.com/hansehe/jaeger-all-in-one
@@ -43,7 +63,7 @@ entries:
     version: 0.1.10
   - apiVersion: v2
     appVersion: "1.46"
-    created: "2023-08-09T17:59:57.9630876+02:00"
+    created: "2024-03-27T12:46:25.5114886+01:00"
     description: Jaeger all-in-one helm chart for Kubernetes
     digest: 1f989787ce86924cb0fa99976226de8e910c0e2e7adac7de70602452f5ab3b80
     home: https://github.com/hansehe/jaeger-all-in-one
@@ -63,7 +83,7 @@ entries:
     version: 0.1.9
   - apiVersion: v2
     appVersion: 1.41.0
-    created: "2023-08-09T17:59:57.9630876+02:00"
+    created: "2024-03-27T12:46:25.5104399+01:00"
     description: Jaeger all-in-one helm chart for Kubernetes
     digest: b5586e6e002be745c524e67c0e6de9a0172bde86da34f84d6cd84c21e597986e
     home: https://github.com/hansehe/jaeger-all-in-one
@@ -83,7 +103,7 @@ entries:
     version: 0.1.8
   - apiVersion: v2
     appVersion: 1.22.0
-    created: "2023-08-09T17:59:57.9630876+02:00"
+    created: "2024-03-27T12:46:25.5093878+01:00"
     description: Jaeger all-in-one helm chart for Kubernetes
     digest: c69376758939b6fb547092f650aaf14e1b4affe192643846a5c1165141f2bf4c
     home: https://github.com/hansehe/jaeger-all-in-one
@@ -103,7 +123,7 @@ entries:
     version: 0.1.7
   - apiVersion: v2
     appVersion: 1.22.0
-    created: "2023-08-09T17:59:57.9630876+02:00"
+    created: "2024-03-27T12:46:25.5082943+01:00"
     description: Jaeger all-in-one helm chart for Kubernetes
     digest: fcbff209f1a8e0fe448026bb780a77f2beb1121689071023d966044f6dbf17ba
     home: https://github.com/hansehe/jaeger-all-in-one
@@ -123,7 +143,7 @@ entries:
     version: 0.1.6
   - apiVersion: v2
     appVersion: 1.22.0
-    created: "2023-08-09T17:59:57.9630876+02:00"
+    created: "2024-03-27T12:46:25.5033552+01:00"
     description: Jaeger all-in-one helm chart for Kubernetes
     digest: e336b32e3da961d3850974ea0275a42cb9544eef75cd85910b3eb9fa52412a38
     home: https://github.com/hansehe/jaeger-all-in-one
@@ -143,7 +163,7 @@ entries:
     version: 0.1.5
   - apiVersion: v2
     appVersion: 1.22.0
-    created: "2023-08-09T17:59:57.9630333+02:00"
+    created: "2024-03-27T12:46:25.5028366+01:00"
     description: Jaeger all-in-one helm chart for Kubernetes
     digest: 80e6e273228bc6eada30e0b0db7c60b34fcce9ebfadc20d76daf3d54f4112ea7
     home: https://github.com/hansehe/jaeger-all-in-one
@@ -163,7 +183,7 @@ entries:
     version: 0.1.4
   - apiVersion: v2
     appVersion: 1.22.0
-    created: "2023-08-09T17:59:57.9530259+02:00"
+    created: "2024-03-27T12:46:25.5017945+01:00"
     description: Jaeger all-in-one helm chart for Kubernetes
     digest: d768d031e3ffbf0353894a86a7863209cb1dbd386a01e83315ef58b5fe7a1583
     home: https://github.com/hansehe/jaeger-all-in-one
@@ -183,7 +203,7 @@ entries:
     version: 0.1.3
   - apiVersion: v2
     appVersion: 1.21.0
-    created: "2023-08-09T17:59:57.9530259+02:00"
+    created: "2024-03-27T12:46:25.500762+01:00"
     description: Jaeger all-in-one helm chart for Kubernetes
     digest: 80c3ea39410998f562ce6ae1fb9e71a8ade7dc8b9b9b0f9a5cfbbd2d72c727bb
     home: https://github.com/hansehe/jaeger-all-in-one
@@ -203,7 +223,7 @@ entries:
     version: 0.1.2
   - apiVersion: v2
     appVersion: 1.21.0
-    created: "2023-08-09T17:59:57.9530259+02:00"
+    created: "2024-03-27T12:46:25.4976557+01:00"
     description: Jaeger all-in-one helm chart for Kubernetes
     digest: 68985c4defdb1808c3fdf2093c7dc4c062868f79fbf8cde8c3da917fecdf44d1
     home: https://github.com/hansehe/jaeger-all-in-one
@@ -223,7 +243,7 @@ entries:
     version: 0.1.1
   - apiVersion: v2
     appVersion: 1.21.0
-    created: "2023-08-09T17:59:57.9530259+02:00"
+    created: "2024-03-27T12:46:25.4971348+01:00"
     description: Jaeger all-in-one helm chart for Kubernetes
     digest: ab7b3e8d18cf833825845d39681d89047496e5f88a37ad699e17a46efbb48e4b
     home: https://github.com/hansehe/jaeger-all-in-one
@@ -241,4 +261,4 @@ entries:
     urls:
     - jaeger-all-in-one-0.1.0.tgz
     version: 0.1.0
-generated: "2023-08-09T17:59:57.9530259+02:00"
+generated: "2024-03-27T12:46:25.4955805+01:00"
