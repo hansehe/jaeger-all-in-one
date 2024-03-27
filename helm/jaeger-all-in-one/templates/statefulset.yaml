@@ -85,10 +85,18 @@ spec:
               name: jaeger-volume
           {{- end }}
           livenessProbe:
+            successThreshold: {{ .Values.livenessProbe.successThreshold }}
+            failureThreshold: {{ .Values.livenessProbe.failureThreshold }}
+            periodSeconds: {{ .Values.livenessProbe.periodSeconds }}
+            timeoutSeconds: {{ .Values.livenessProbe.timeoutSeconds }}
             httpGet:
               path: {{ .Values.healthCheckUrl | quote }}
               port: http-admin
           readinessProbe:
+            successThreshold: {{ .Values.readinessProbe.successThreshold }}
+            failureThreshold: {{ .Values.readinessProbe.failureThreshold }}
+            periodSeconds: {{ .Values.readinessProbe.periodSeconds }}
+            timeoutSeconds: {{ .Values.readinessProbe.timeoutSeconds }}
             httpGet:
               path: {{ .Values.healthCheckUrl | quote }}
               port: http-admin
