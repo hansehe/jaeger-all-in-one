@@ -101,24 +101,14 @@ volume:
 tests:
   enabled: true
 
-# -- Liveness probe.
 livenessProbe:
-  # -- The liveness probe period seconds.
   periodSeconds: 10
-  # -- The liveness probe timeout seconds.
-  timeoutSeconds: 1
-  # -- The liveness probe failure threshold.
+  timeoutSeconds: 3
   failureThreshold: 3
-  # -- The liveness probe success threshold.
   successThreshold: 1
 
-# -- Readiness probe.
 readinessProbe:
-  # -- The readiness probe period seconds.
   periodSeconds: 10
-  # -- The readiness probe timeout seconds.
-  timeoutSeconds: 1
-  # -- The readiness probe failure threshold.
+  timeoutSeconds: 3
   failureThreshold: 3
-  # -- The readiness probe success threshold.
   successThreshold: 1
